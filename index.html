@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Desktop Environment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./functioncss/startmenu.css">
+    <script src="https://unpkg.com/winbox@latest/dist/winbox.bundle.min.js"></script>
+</head>
+
+<body>
+        <div class="taskbar">
+            <button id="start-button"><img src="./svgs/windows-start-btn.svg" alt="windows-start-btn"></button>
+        </div>
+    <!-- Start Menu Code -->
+        <div class="start-menu hidden">
+            <div class="sidebar">
+                <div class="user-profile">
+                    <img src="./icons/user_image.png" alt="User">
+                    <span>User Name</span>
+                </div>
+            </div>
+            
+            <div class="menu-items">
+                <div class="menu-item" data-app="Notepad">
+                    <img src="./icons/notepad.png" alt="Notepad">
+                    <span>Notepad</span>
+                </div>
+                <div class="menu-item" data-app="Calculator">
+                    <img src="./icons/calculator.png" alt="Calculator">
+                    <span>Calculator</span>
+                </div>
+                <div class="menu-item" data-app="File Explorer">
+                    <img src="./icons/File Explorer.png" alt="File Explorer">
+                    <span>File Explorer</span>
+                </div>
+                <div class="menu-item" data-app="Recycle Bin">
+                    <img src="./icons/recycle-bin.png" alt="Recycle Bin">
+                    <span>Recycle Bin</span>
+                </div>
+                <div class="menu-item" data-app="Settings">
+                    <img src="./icons/settings.png" alt="Settings">
+                    <span>Settings</span>
+                </div>
+                <div class="menu-item" data-app="Clock">
+                    <img src="./icons/clock.png" alt="Clock">
+                    <span>Clock</span>
+                </div>
+                <div class="menu-item" data-app="Themes">
+                    <img src="./icons/themes.png" alt="Themes">
+                    <span>Themes</span>
+                </div>
+            </div>
+            
+            <div class="power-options">
+                <button><i class="fas fa-power-off"></i>Shut down</button>
+                <button><i class="fas fa-redo"></i>Restart</button>
+            </div>
+        </div>
+        <!-- End Menu Code -->
+    <div id="desktop">
+        <div class="icon" data-app="my-computer">
+            <img src="icons/File Explorer.png" alt="My Computer">
+            <span>My PC</span>
+        </div>
+        <div class="icon" data-app="recycle-bin">
+            <img src="./icons/recycle-bin.png" alt="Recycle Bin">
+            <span>Recycle Bin</span>
+        </div>
+        <div class="icon" data-app="notepad">
+            <img src="./icons/notepad.png" alt="Recycle Bin">
+            <span>Notepad</span>
+        </div>
+    </div>
+
+    <ul id="context-menu" class="hidden">
+        <li onclick="refreshDesktop()">Refresh</li>
+        <li onclick="createNewFile()">New File</li>
+        <li class="WinThemes" data-app="theme" onclick="Themes()">Themes</li>
+    </ul>
+
+    <script src="index.js"></script>
+    <script src="./apps/indextheme.js"></script>
+    <script src="./functionjs/startmenu.js"></script>
+</body>
+
+</html>
