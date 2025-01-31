@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Desktop Environment</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/winbox@latest/dist/winbox.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div id="desktop">
+        <div class="icon" data-app="my-computer">
+            <img src="icons/computer.png" alt="My Computer">
+            <span>My Computer</span>
+        </div>
+        <div class="icon" data-app="recycle-bin">
+            <img src="icons/recycle-bin.png" alt="Recycle Bin">
+            <span>Recycle Bin</span>
+        </div>
+    </div>
+
+    <ul id="context-menu" class="hidden">
+        <li onclick="refreshDesktop()">Refresh</li>
+        <li onclick="createNewFile()">New File</li>
+    </ul>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
