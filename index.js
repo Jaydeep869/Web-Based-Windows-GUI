@@ -13,6 +13,21 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+    document.querySelectorAll(".menu-item").forEach(menuitem => {
+        menuitem.addEventListener("click", function () {
+            const app = menuitem.getAttribute("data-app");
+
+            new WinBox({
+                title: app.replace("-", " ").toUpperCase(),
+                width: "400px",
+                height: "300px",
+                x: "center",
+                y: "center",
+                url: `apps/${app}.html`
+            });
+        });
+    });
+
 
     const contextMenu = document.getElementById("context-menu");
     document.addEventListener("contextmenu", function (event) {
@@ -25,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function () {
         contextMenu.classList.add("hidden");
     });
-  
+    
 });
 
 function refreshDesktop() {
@@ -34,5 +49,17 @@ function refreshDesktop() {
 
 function createNewFile() {
     alert("New file created!");
+}
+function Themes() {
+    const app = document.querySelector(".WinThemes").getAttribute("data-app");
+
+            new WinBox({
+                title: app.replace("-", " ").toUpperCase(),
+                width: "400px",
+                height: "300px",
+                x: "center",
+                y: "center",
+                url: `apps/${app}.html`
+            });
 }
 

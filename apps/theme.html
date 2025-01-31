@@ -1,0 +1,59 @@
+theme.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Settings</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .upload-container {
+            text-align: center;
+            padding: 20px;
+        }
+        #wallpaperInput {
+            margin: 10px 0;
+        }
+        .preview-image {
+            max-width: 100%;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h3>Change Wallpaper</h3>
+        <input type="file" 
+               id="wallpaperInput" 
+               accept="image/*" 
+               onchange="handleImageUpload(event)">
+        <img id="preview" class="preview-image" alt="Preview">
+    </div>
+    <script>
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Send image data to indextheme.js
+                    window.parent.postMessage({
+                        type: 'wallpaperChange',
+                        imageData: e.target.result
+                    }, '*');
+                    
+                    // Show preview
+                    const preview = document.getElementById('preview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+    <script src="./indextheme.js"></script>
+</body>
+</html>
